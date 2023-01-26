@@ -1,0 +1,47 @@
+/** @format */
+
+.card-task {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #dc3545;
+  background-color: #f8d7da;
+  color: #dc3545;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.conten-title {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  overflow: hidden;
+}
+
+.conten-icon {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.complete {
+  border: 1px solid #0d6efd;
+  background-color: #cfe2ff;
+  color: #0d6efd;
+}
+
+.hide {
+  transition: all 1.5s;
+  transform: translateX(-500px);
+}
+
+.show {
+  transition: all 1.5s;
+  transform: translateX(0px);
+}

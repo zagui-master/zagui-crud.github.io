@@ -1,0 +1,14 @@
+/** @format */
+
+.root {
+  max-width: 360px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 30px auto;
+  row-gap: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+  margin-top: 50px;
+}

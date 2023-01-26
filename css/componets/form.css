@@ -1,0 +1,52 @@
+/** @format */
+
+.form-task {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 37px);
+  row-gap: 10px;
+  padding-top: 15px;
+}
+
+.conten-input-text {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #732ff9;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-text {
+  width: 95%;
+  height: 90%;
+  outline: none;
+  border: none;
+  color: #626161;
+}
+
+.input-text::placeholder {
+  color: #732ff9;
+  text-align: center;
+}
+
+.btn-add-task {
+  width: 100%;
+  height: 35px;
+  background-color: #732ff9;
+  color: #eae0ff;
+  outline: none;
+  border: 1px solid #732ff9;
+  border-radius: 5px;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-p-h::placeholder {
+  color: red;
+}

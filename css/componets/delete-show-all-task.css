@@ -1,0 +1,44 @@
+/** @format */
+
+.conten-option-delete-all-show-all-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.conten-delete-all-tasks,
+.conten-show-hide-all-tasks {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.conten-show-hide-all-tasks {
+  display: flex;
+  align-items: center;
+}
+
+.conten-show {
+  margin-right: 10px;
+}
+
+.conten-delete-all-tasks {
+  color: rgb(253, 88, 88);
+}
+
+.conten-delete-all-tasks:hover {
+  color: red;
+}
+
+.conten-show-hide-all-tasks {
+  color: #5497fc;
+}
+
+.conten-show-hide-all-tasks:hover {
+  color: #0d6efd;
+}
+
+.conten-show-hide-all-tasks > i {
+  transform: rotate(15deg);
+}
