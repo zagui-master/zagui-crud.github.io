@@ -5,6 +5,10 @@ const title_modal = document.getElementById("title_modal");
 const modal_delete_all_tasks = document.getElementById(
   "modal_delete_all_tasks"
 );
+const btn_go_back = document.getElementById("btn_go_back");
+const btn_yes = document.getElementById("btn_yes");
+const btn_no = document.getElementById("btn_no");
+
 const conten_tasks = document.getElementById("conten_tasks");
 const form_task = document.getElementById("form_task");
 const conten_input_text = document.getElementById("conten_input_text");
@@ -155,6 +159,7 @@ form_task.addEventListener("submit", (e) => {
     input_text.placeholder = "Describe your task";
     conten_input_text.classList.remove("error");
     input_text.classList.remove("error-p-h");
+    location.reload();
   }
 });
 
@@ -171,6 +176,7 @@ conten_tasks.addEventListener("click", (e) => {
   }
   if (id_icon_trash === "icon_trash") {
     delete_task(title_task);
+    location.reload();
   }
 });
 
@@ -178,20 +184,24 @@ locator_delete_all_tasks.addEventListener("click", () => {
   let arr_tasks = JSON.parse(localStorage.getItem("task"));
 
   if (arr_tasks.length === 0) {
+    btn_yes.classList.add("hide");
+    btn_no.classList.add("hide");
     title_modal.innerText = "You don't have tasks to delete!";
+    btn_go_back.classList.add("show");
     show_modal();
-  } else {
+  }
+  if (arr_tasks.length > 0) {
+    btn_go_back.classList.add("hide");
     show_modal();
   }
 });
 
-hide_tasks.addEventListener("click", (e) => {
+hide_tasks.addEventListener("click", () => {
   conten_tasks.classList.remove("show");
   conten_tasks.classList.add("hide");
 });
 
-show_tasks.addEventListener("click", (e) => {
-  console.log("entro");
+show_tasks.addEventListener("click", () => {
   conten_tasks.classList.remove("hide");
   conten_tasks.classList.add("show");
 });
@@ -202,8 +212,9 @@ modal_delete_all_tasks.addEventListener("click", (e) => {
   if (id_option === "btn_yes") {
     delete_all_tasks();
     modal_delete_all_tasks.classList.remove("show");
+    location.reload();
   }
-  if (id_option === "btn_no") {
+  if (id_option === "btn_no" || id_option === "btn_go_back") {
     modal_delete_all_tasks.classList.remove("show");
   }
 });

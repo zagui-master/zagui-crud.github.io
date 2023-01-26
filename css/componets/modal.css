@@ -56,8 +56,22 @@
   color: #722ff9ab;
 }
 
+.go-back {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #eae0ff;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  margin: auto;
+}
+
 .show {
   display: block;
+}
+
+.hide {
+  display: none;
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
