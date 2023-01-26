@@ -1,6 +1,7 @@
 /** @format */
 
 const root = document.getElementById("root");
+const title_modal = document.getElementById("title_modal");
 const modal_delete_all_tasks = document.getElementById(
   "modal_delete_all_tasks"
 );
@@ -174,7 +175,14 @@ conten_tasks.addEventListener("click", (e) => {
 });
 
 locator_delete_all_tasks.addEventListener("click", () => {
-  show_modal();
+  let arr_tasks = JSON.parse(localStorage.getItem("task"));
+
+  if (arr_tasks.length === 0) {
+    title_modal.innerText = "You don't have tasks to delete!";
+    show_modal();
+  } else {
+    show_modal();
+  }
 });
 
 hide_tasks.addEventListener("click", (e) => {
