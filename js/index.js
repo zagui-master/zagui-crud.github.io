@@ -12,7 +12,7 @@ const btn_no = document.getElementById("btn_no");
 const conten_tasks = document.getElementById("conten_tasks");
 const form_task = document.getElementById("form_task");
 const conten_input_text = document.getElementById("conten_input_text");
-const locator_delete_all_tasks = document.getElementById("delete_all_tasks");
+const btn_delete_all_tasks = document.getElementById("delete_all_tasks");
 const show_tasks = document.getElementById("show_tasks");
 const hide_tasks = document.getElementById("hide_tasks");
 
@@ -129,13 +129,13 @@ const show_task = () => {
   });
 };
 const show_modal = () => {
-  modal_delete_all_tasks.classList.add("show");
+  modal_delete_all_tasks.classList.add("show-modal");
 };
 document.addEventListener("DOMContentLoaded", show_task);
 
 form_task.addEventListener("submit", (e) => {
   let input_text = document.getElementById("input_text");
-  const regexpCoordinates = !/^([0-9])*$/;
+
   e.preventDefault();
   if (input_text.value == "") {
     input_text.placeholder = "The field can't be empty";
@@ -152,7 +152,7 @@ form_task.addEventListener("submit", (e) => {
     conten_input_text.classList.add("error");
     form_task.reset();
   }
-  if (!input_text.value == "" || regexpCoordinates.test(input_text.value)) {
+  if (!input_text.value == "" || !/^([0-9])*$/.test(input_text.value)) {
     get_info(input_text.value);
     sendLs();
     show_task();
@@ -160,7 +160,7 @@ form_task.addEventListener("submit", (e) => {
     input_text.placeholder = "Describe your task";
     conten_input_text.classList.remove("error");
     input_text.classList.remove("error-p-h");
-    location.reload();
+    //location.reload();
   }
 });
 
@@ -181,30 +181,30 @@ conten_tasks.addEventListener("click", (e) => {
   }
 });
 
-locator_delete_all_tasks.addEventListener("click", () => {
+btn_delete_all_tasks.addEventListener("click", () => {
   let arr_tasks = JSON.parse(localStorage.getItem("task"));
 
   if (arr_tasks.length === 0) {
-    btn_yes.classList.add("hide");
-    btn_no.classList.add("hide");
+    btn_yes.classList.add("hide-modal");
+    btn_no.classList.add("hide-modal");
     title_modal.innerText = "You don't have tasks to delete!";
-    btn_go_back.classList.add("show");
+    btn_go_back.classList.add("show-modal");
     show_modal();
   }
   if (arr_tasks.length > 0) {
-    btn_go_back.classList.add("hide");
+    btn_go_back.classList.add("hide-modal");
     show_modal();
   }
 });
 
 hide_tasks.addEventListener("click", () => {
-  conten_tasks.classList.remove("show");
-  conten_tasks.classList.add("hide");
+  conten_tasks.classList.remove("show-card-task");
+  conten_tasks.classList.add("hide-card-task");
 });
 
 show_tasks.addEventListener("click", () => {
-  conten_tasks.classList.remove("hide");
-  conten_tasks.classList.add("show");
+  conten_tasks.classList.remove("hide-card-task");
+  conten_tasks.classList.add("show-card-task");
 });
 
 modal_delete_all_tasks.addEventListener("click", (e) => {
@@ -212,10 +212,10 @@ modal_delete_all_tasks.addEventListener("click", (e) => {
 
   if (id_option === "btn_yes") {
     delete_all_tasks();
-    modal_delete_all_tasks.classList.remove("show");
+    modal_delete_all_tasks.classList.remove("show-modal");
     location.reload();
   }
   if (id_option === "btn_no" || id_option === "btn_go_back") {
-    modal_delete_all_tasks.classList.remove("show");
+    modal_delete_all_tasks.classList.remove("show-modal");
   }
 });

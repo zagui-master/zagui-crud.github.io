@@ -66,11 +66,11 @@
   margin: auto;
 }
 
-.show {
+.show-modal {
   display: block;
 }
 
-.hide {
+.hide-modal {
   display: none;
 }
 
