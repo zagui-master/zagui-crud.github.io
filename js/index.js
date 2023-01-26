@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", show_task);
 
 form_task.addEventListener("submit", (e) => {
   let input_text = document.getElementById("input_text");
+  const regexpCoordinates = !/^([0-9])*$/;
   e.preventDefault();
   if (input_text.value == "") {
     input_text.placeholder = "The field can't be empty";
@@ -151,7 +152,7 @@ form_task.addEventListener("submit", (e) => {
     conten_input_text.classList.add("error");
     form_task.reset();
   }
-  if (!input_text.value == "" || !/^([0-9])*$/.test(input_text.value)) {
+  if (!input_text.value == "" || regexpCoordinates.test(input_text.value)) {
     get_info(input_text.value);
     sendLs();
     show_task();
