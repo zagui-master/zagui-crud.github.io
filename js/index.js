@@ -160,7 +160,7 @@ form_task.addEventListener("submit", (e) => {
     input_text.placeholder = "Describe your task";
     conten_input_text.classList.remove("error");
     input_text.classList.remove("error-p-h");
-    //location.reload();
+    location.reload();
   }
 });
 
